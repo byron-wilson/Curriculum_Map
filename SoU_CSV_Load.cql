@@ -2,6 +2,9 @@ CREATE CONSTRAINT ON (u:Unit) ASSERT u.Code IS UNIQUE;
 CREATE CONSTRAINT ON (us:Unit_Scope) ASSERT us.Scope IS UNIQUE;
 CREATE CONSTRAINT ON (ud:Unit_Designation) ASSERT ud.Designation IS UNIQUE;
 CREATE CONSTRAINT ON (ut:Unit_Type) ASSERT ut.Type IS UNIQUE;
+CREATE CONSTRAINT ON (wo:Offering) ASSERT wo.Session IS UNIQUE;
+CREATE CONSTRAINT ON (d:Department) ASSERT d.Name IS UNIQUE;
+CREATE CONSTRAINT ON (f:Faculty) ASSERT f.Name IS UNIQUE;
 
 // DROP CONSTRAINT ON (us:Unit_Scope) ASSERT us.Unit_Scope IS UNIQUE;
  
@@ -26,6 +29,9 @@ FOREACH (x IN CASE WHEN trim(row.Corequisites) <> "" THEN [1] ELSE [] END | SET 
 //Set NCCW for Unit node
 FOREACH (x IN CASE WHEN trim(row.NCCW) <> "" THEN [1] ELSE [] END | SET u.NCCW = row.NCCW)
 
+//Set Pass/Fail for Unit node
+SET u.`Pass/Fail` = row.`Pass/Fail`
+
 //Create link Unit Scope Units together
 MERGE (us:Unit_Scope {Scope:row.`Data Scope`})
 MERGE (u)-[rs:IS_SCOPE]->(us)
@@ -33,8 +39,12 @@ MERGE (u)-[rs:IS_SCOPE]->(us)
 //Create link Unit Type Units together
 FOREACH (x IN CASE WHEN trim(row.`Unit Type`) <> "" THEN [1] ELSE [] END | MERGE (ut:Unit_Type {Type:row.`Unit Type`})
 	MERGE (u)-[rt:IS_TYPE]->(ut))
-//MERGE (ut:Unit_Type {Type:row.`Unit Type`})
 
+//Create Department and Link with offered_by relationship Department and Faculty
+FOREACH (x IN CASE WHEN trim(row.`Offering Department`) <> "" THEN [1] ELSE [] END | MERGE (d:Department {Name:row.`Offering Department`})
+	MERGE (u)-[ob:OFFERED_BY]->(d)
+	MERGE (f:Faculty {Name: row.`Offering Faculty`})
+	MERGE (d)-[do:DEPARTMENT_OF]->(f))
 ;
 
 
@@ -75,6 +85,7 @@ MERGE(u)-[:IS_NCCW]->(nccw)
 USING PERIODIC COMMIT
 LOAD CSV WITH HEADERS FROM 'file:///SoU_2018.csv' AS row
 WITH row, split(row.`When Offered`,'\n') AS list
+
 UNWIND
 	CASE
 		WHEN list = []
@@ -83,6 +94,46 @@ UNWIND
 	END AS result
 MATCH (u:Unit {Code: row.Code})
 MERGE(wo:Offering {Code:trim(result)})
+MERGE(u)-[:OFFERED_IN]->(wo)
+;
+
+//Link units together that are co-taught
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///SoU_2018.csv' AS row
+WITH row, split(row.`Co-taught Units`,',') AS list
+
+UNWIND
+	CASE
+		WHEN list = []
+			THEN [null]
+		ELSE list
+	END AS result
+MATCH (u:Unit {Code: row.Code})
+MATCH (ct:Unit {Code: trim(result)})
+CREATE (u)-[:CO_TAUGHT]->(ct)
+;
+
+
+//Works up to this point==========================================
+
+
+
+
+
+
+//Create 'On Campus Attendence' property to offering nodes (STILL IN PROGRESS - NOT WORKING skipping for now)
+USING PERIODIC COMMIT
+LOAD CSV WITH HEADERS FROM 'file:///SoU_2018.csv' AS row
+WITH row, split(row.`When Offered`,'\n') AS list, split(row.`On Campus Attendance`,'\n') AS list2
+
+UNWIND
+	CASE
+		WHEN list2 = []
+			THEN [null]
+		ELSE list2
+	END AS result2
+MATCH (u:Unit {Code: row.Code})
+MATCH(wo:Offering {Code:trim(result2)})
 MERGE(u)-[:OFFERED_IN]->(wo)
 ;
 
