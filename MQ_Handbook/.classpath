@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/asm-6.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/asm-analysis-6.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/asm-tree-6.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/asm-util-6.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/bcpkix-jdk15on-1.59.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/bcprov-jdk15on-1.59.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/caffeine-2.6.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-beanutils-1.9.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-collections-3.2.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-compress-1.16.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-configuration-1.10.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-io-2.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-lang-2.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-lang3-3.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-logging-1.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/commons-text-1.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/concurrentlinkedhashmap-lru-1.4.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/hazelcast-all-3.7.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jackson-core-asl-1.9.13.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jackson-jaxrs-1.9.13.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jackson-mapper-asl-1.9.13.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/javax.servlet-api-3.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jersey-core-1.19.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jersey-server-1.19.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jersey-servlet-1.19.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-http-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-io-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-security-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-server-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-servlet-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-util-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-webapp-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jetty-xml-9.4.8.v20171121.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jline-2.12.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jPowerShell-1.9.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jProcesses-1.6.4.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jsr305-3.0.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/jsr311-api-1.1.2.r612.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/kiama_2.11-2.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/lucene-analyzers-common-5.5.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/lucene-codecs-5.5.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/lucene-core-5.5.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/lucene-queryparser-5.5.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/lz4-1.3.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/metrics-core-4.0.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/metrics-graphite-4.0.2.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-auth-plugin-api-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-backup-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-bolt-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-browser-3.1.12.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-causal-clustering-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-causal-clustering-commercial-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cluster-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-codegen-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-collections-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-com-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-command-line-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-common-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-configuration-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-consistency-check-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-csv-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-compiler-2.3-2.3.12.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-compiler-3.1-3.1.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-compiler-3.3-3.3.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-expression-3.4-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-frontend-2.3-2.3.12.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-frontend-3.1-3.1.8.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-frontend-3.3-3.3.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-interpreted-runtime-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-ir-3.3-3.3.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-ir-3.4-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-logical-plans-3.3-3.3.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-logical-plans-3.4-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-morsel-runtime-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-physical-planning-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-planner-3.4-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-planner-spi-3.4-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-runtime-util-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-slotted-runtime-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-cypher-util-3.4-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-dbms-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-enterprise-cypher-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-enterprise-kernel-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-graph-algo-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-graphdb-api-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-graph-matching-3.1.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-ha-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-import-tool-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-index-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-io-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-jmx-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-kernel-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-kernel-api-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-kernel-commercial-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-logging-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-lucene-index-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-lucene-upgrade-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-management-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-metrics-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-primitive-collections-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-procedure-api-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-query-logging-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-resource-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-security-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-security-enterprise-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-server-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-server-commercial-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-server-enterprise-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-shell-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-spatial-index-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-ssl-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-udc-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-unsafe-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/neo4j-values-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/netty-3.9.9.Final.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/netty-all-4.1.24.Final.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/objenesis-2.6.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/opencsv-2.3.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/openCypher-frontend-1-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/parboiled-core-1.1.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/parboiled-scala_2.11-1.1.7.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/rhino-1.7.9.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/scala-library-2.11.12.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/scala-reflect-2.11.12.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/scallop_2.11-2.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/server-api-3.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-cache-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-config-core-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-config-ogdl-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-core-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-crypto-cipher-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-crypto-core-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-crypto-hash-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-event-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/shiro-lang-1.4.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/simpleclient_common-0.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/simpleclient_dropwizard-0.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/simpleclient_httpserver-0.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/simpleclient-0.1.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/slf4j-api-1.7.25.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/slf4j-nop-1.7.25.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/MQ20169991/.Neo4jDesktop/neo4jDatabases/database-59282d7f-671c-4b17-b649-3e9c973149d8/installation-3.4.0/lib/WMI4Java-1.6.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
