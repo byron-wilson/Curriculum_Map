@@ -9,20 +9,24 @@ import csv
 def displayUnit(dict):
     createCSV(dict, "")
     
-def createCSV(u, dict, level):
+def createCSV(dict, par):
+    #u: is the unit code requested
+    #dict: is the pre-requisite structure
+    #level: is the level in the hierarchy
+    l = 0
+    p_type = 'Unit'
     with open('MQ_Hdbk_gdb.csv','w', newline='') as f:
-        fieldnames = ['from','rel','to']
+        fieldnames = ['from', 'f_type','rel','r_type','to','t_type']
         writer = csv.DictWriter(f, fieldnames=fieldnames)
-        
         writer.writeheader()
-        # writer.writerow({'from': 'unit1', 'rel': 'HAS_PREREQUISITE', 'to': 'unit2'})  #example#
-        writeUnitEntries(u, dict, level)
+        
+        writeUnitEntries(dict, par, p_type, writer, l)
+        #writer.writerow({'from': c, 'rel': b, 'to': c})
   
-def writeUnitEntries(u, dict, level):
+def writeUnitEntries(dict, par, p_type, writer, l):
     if not("Type" in dict):
         #print(level, "No Prerequisites")
-        open('MQ_Hdbk_gdb.csv','w') as f:
-            csv.writer()
+        writer.writerow({'from': par})
         return
     sw = {
         "And": displayAnd,
@@ -35,59 +39,69 @@ def writeUnitEntries(u, dict, level):
         "Range":  displayRange,
         "CreditPoints": displayCreditPoints,
         "AreaList": displayAreaList }
-    return (sw.get(dict["Type"], displayError))(dict, level)
+    return (sw.get(dict["Type"], displayError))(dict, par, p_type, writer, l)
 
-def displayError(dict, level):
-    print(level, "Invalid Dictionary Entry: ", dict)
+def displayError(dict, par, writer, l):
+    print(par , "Invalid Dictionary Entry: ", dict)
 
-def displayAnd(dict, level):
-    print(level, "AND:")    
+def displayAnd(dict, par, p_type, writer, l):
+    l = l + 1
+    newpar = 'AND'+str(l)
+    np_type = 'AND'
+    writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': np_type, 'to': newpar, 't_type': np_type})
     for d in dict["Value"]:
-        displayUnitEntries(d, level + "  ")
+        writeUnitEntries(d, newpar, np_type, writer, l)
 
-def displayOr(dict, level): 
-    print(level, "OR:")
+def displayOr(dict, par, p_type, writer, l): 
+    l = l + 1
+    newpar = 'OR'+str(l)
+    np_type = 'OR'
+    writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': np_type, 'to': newpar, 't_type': np_type}) 
     for d in dict["Value"]:
-        displayUnitEntries(d, level + "  ")
+        writeUnitEntries(d, newpar, np_type , writer, l)
 
-def displayAdmission(dict, level):
-    print(level, "Admission To: ", end="")
+def displayAdmission(dict, par, p_type, writer, l):
     d = dict["Value"]
     s=""
     for i in d:
-        print(s, end="")
-        displayDegree(i, "")
+        displayDegree(i, par, p_type, writer, l)
         s=","
-    print()
 
-def displayDegree(dict, level):
-    print(level, "Degree: ", end="")
+def displayDegree(dict, par, p_type, writer, l):
     d = dict
-    print(d["Value"], end="")
+    p = par
+    pt = p_type
     if "In" in d:
+        l = l + 1
+        p = 'AND'+str(l)
+        pt = 'AND'
+        writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': pt, 'to': p, 't_type': pt})
+        writer.writerow({'from': p, 'f_type': pt, 'rel': 'HAS_PREREQUISITE', 'r_type': 'Major', 'to': d["In"], 't_type': 'Major'})
         print(" In", d["In"], end="")
     if "prior" in d:
+        writer.writerow({'from': p, 'f_type': pt, 'rel': 'HAS_PREREQUISITE', 'r_type': 'Prior_To', 'to': d["prior"], 't_type': 'Year'})
         print(" Prior to", d["prior"], end="")
-
-def displayGPA(dict, level):
-    print(level, "GPA of", dict["Value"], end="")
+    writer.writerow({'from': p, 'f_type': pt, 'rel': 'HAS_PREREQUISITE', 'r_type': 'Degree', 'to': d["Value"], 't_type': 'Degree'})
+    
+def displayGPA(dict, par, p_type, writer, l):
+    node = str(dict["Value"])
     if "OutOf" in dict:
-        print(" Out Of", dict["OutOf"], end="")
-    print()
+        node += " Out of" + dict["OutOf"]
+    writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': 'GPA', 'to': node, 't_type': 'GPA'})
 
-def displayPermission(dict, level):
-    print(level, "Permission by Special Approval")
+def displayPermission(dict, par, writer, l):
+    writer.writerow({'from': par, 'rel': 'HAS_PREREQUISITE', 'to': 'Permission by Special Approval'})
 
-def displayCourse(dict, level):
+def displayCourse(dict, par, writer, l):
     if "HSC" in dict:
-        return displayHSC(dict, level)
+        return displayHSC(dict, l)
     v = "Course: "
     if "coreq" in dict:
         v = v + "Corequisite of "
     v = v + dict["Value"]
     if "Min" in dict:
         v = v + "(" + dict["Min"] + ")"
-    print(level, v)
+    writer.writerow({'from': par, 'rel': 'HAS_PREREQUISITE', 'to': str.upper(dict["Value"])})
 
 def displayHSC(dict, level):
     v = "HSC " + dict["Value"]

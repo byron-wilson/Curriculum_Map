@@ -562,7 +562,7 @@ def main():
 #            print(v, d)
             print(str)
             displayEntry(d, "")
-            createCSV(str, d, "")
+            createCSV(d, str)
 
 
 main()
