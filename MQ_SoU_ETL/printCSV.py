@@ -6,12 +6,12 @@
 import csv
 
 
-def displayUnit(dict):
-    createCSV(dict, "")
+def displayUnit(DStruct):
+    createCSV(DStruct, "")
     
-def createCSV(dict, par):
+def createCSV(DStruct, par):
     #u: is the unit code requested
-    #dict: is the pre-requisite structure
+    #DStruct: is the pre-requisite structure
     #level: is the level in the hierarchy
     l = 0
     p_type = 'Unit'
@@ -20,11 +20,11 @@ def createCSV(dict, par):
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         
-        writeUnitEntries(dict, par, p_type, writer, l)
+        writeUnitEntries(DStruct, par, p_type, writer, l)
         #writer.writerow({'from': c, 'rel': b, 'to': c})
   
-def writeUnitEntries(dict, par, p_type, writer, l):
-    if not("Type" in dict):
+def writeUnitEntries(DStruct, par, p_type, writer, l):
+    if not("Type" in DStruct):
         #print(level, "No Prerequisites")
         writer.writerow({'from': par})
         return
@@ -39,36 +39,36 @@ def writeUnitEntries(dict, par, p_type, writer, l):
         "Range":  displayRange,
         "CreditPoints": displayCreditPoints,
         "AreaList": displayAreaList }
-    return (sw.get(dict["Type"], displayError))(dict, par, p_type, writer, l)
+    return (sw.get(DStruct["Type"], displayError))(DStruct, par, p_type, writer, l)
 
-def displayError(dict, par, writer, l):
-    print(par , "Invalid Dictionary Entry: ", dict)
+def displayError(DStruct, par, writer, l):
+    print(par , "Invalid Dictionary Entry: ", DStruct)
 
-def displayAnd(dict, par, p_type, writer, l):
+def displayAnd(DStruct, par, p_type, writer, l):
     l = l + 1
     newpar = 'AND'+str(l)
     np_type = 'AND'
     writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': np_type, 'to': newpar, 't_type': np_type})
-    for d in dict["Value"]:
+    for d in DStruct["Value"]:
         writeUnitEntries(d, newpar, np_type, writer, l)
 
-def displayOr(dict, par, p_type, writer, l): 
+def displayOr(DStruct, par, p_type, writer, l): 
     l = l + 1
     newpar = 'OR'+str(l)
     np_type = 'OR'
     writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': np_type, 'to': newpar, 't_type': np_type}) 
-    for d in dict["Value"]:
+    for d in DStruct["Value"]:
         writeUnitEntries(d, newpar, np_type , writer, l)
 
-def displayAdmission(dict, par, p_type, writer, l):
-    d = dict["Value"]
+def displayAdmission(DStruct, par, p_type, writer, l):
+    d = DStruct["Value"]
     s=""
     for i in d:
         displayDegree(i, par, p_type, writer, l)
         s=","
 
-def displayDegree(dict, par, p_type, writer, l):
-    d = dict
+def displayDegree(DStruct, par, p_type, writer, l):
+    d = DStruct
     p = par
     pt = p_type
     if "In" in d:
@@ -83,70 +83,70 @@ def displayDegree(dict, par, p_type, writer, l):
         print(" Prior to", d["prior"], end="")
     writer.writerow({'from': p, 'f_type': pt, 'rel': 'HAS_PREREQUISITE', 'r_type': 'Degree', 'to': d["Value"], 't_type': 'Degree'})
     
-def displayGPA(dict, par, p_type, writer, l):
-    node = str(dict["Value"])
-    if "OutOf" in dict:
-        node += " Out of" + dict["OutOf"]
+def displayGPA(DStruct, par, p_type, writer, l):
+    node = str(DStruct["Value"])
+    if "OutOf" in DStruct:
+        node += " Out of" + DStruct["OutOf"]
     writer.writerow({'from': par, 'f_type': p_type, 'rel': 'HAS_PREREQUISITE', 'r_type': 'GPA', 'to': node, 't_type': 'GPA'})
 
-def displayPermission(dict, par, writer, l):
+def displayPermission(DStruct, par, writer, l):
     writer.writerow({'from': par, 'rel': 'HAS_PREREQUISITE', 'to': 'Permission by Special Approval'})
 
-def displayCourse(dict, par, writer, l):
-    if "HSC" in dict:
-        return displayHSC(dict, l)
+def displayCourse(DStruct, par, writer, l):
+    if "HSC" in DStruct:
+        return displayHSC(DStruct, l)
     v = "Course: "
-    if "coreq" in dict:
+    if "coreq" in DStruct:
         v = v + "Corequisite of "
-    v = v + dict["Value"]
-    if "Min" in dict:
-        v = v + "(" + dict["Min"] + ")"
-    writer.writerow({'from': par, 'rel': 'HAS_PREREQUISITE', 'to': str.upper(dict["Value"])})
+    v = v + DStruct["Value"]
+    if "Min" in DStruct:
+        v = v + "(" + DStruct["Min"] + ")"
+    writer.writerow({'from': par, 'rel': 'HAS_PREREQUISITE', 'to': str.upper(DStruct["Value"])})
 
-def displayHSC(dict, level):
-    v = "HSC " + dict["Value"]
+def displayHSC(DStruct, level):
+    v = "HSC " + DStruct["Value"]
     print(level, v)
     level = level + "  "
-    if "bands" in dict:
+    if "bands" in DStruct:
         print(level, "Bands:", end="")
         s=""
-        for b in dict["bands"]:
+        for b in DStruct["bands"]:
             print(s, b, end="")
             s=","
         print()
-    if "Extension1" in dict:
+    if "Extension1" in DStruct:
         e1s = "Extension 1"
         s=": "
-        for i in dict["Extension1"]:
+        for i in DStruct["Extension1"]:
             e1s = e1s + s + "E" + str(i)
             s = ", "
         print(level, e1s)
-    if "Extension2" in dict:
+    if "Extension2" in DStruct:
         print(level, "Extension 2")
 
-def displayRange(dict, level):
+def displayRange(DStruct, level):
     print(level, "Course Range:")
-    displayCourse(dict["Start"], level + "   ")
-    displayCourse(dict["End"], level + "To:")
+    displayCourse(DStruct["Start"], level + "   ")
+    displayCourse(DStruct["End"], level + "To:")
 
-def displayCreditPoints(dict, level):
-    cp=str(dict["Points"]) + " Credit Points"
-    if "Min" in dict:
-        cp = cp + "(" + dict["Min"] + ")"
-    if "Level" in dict:
-        cp = cp + " at " + str(dict["Level"]) + " level"
-        if "Above" in dict:
+def displayCreditPoints(DStruct, level):
+    cp=str(DStruct["Points"]) + " Credit Points"
+    if "Min" in DStruct:
+        cp = cp + "(" + DStruct["Min"] + ")"
+    if "Level" in DStruct:
+        cp = cp + " at " + str(DStruct["Level"]) + " level"
+        if "Above" in DStruct:
             cp = cp + " or Above"
     print(level, cp)
-    if "Area" in dict:
+    if "Area" in DStruct:
         print(level, "  Areas: ")
-        displayAreaList(dict["Area"], level + "    ")
-    if "Including" in dict:
+        displayAreaList(DStruct["Area"], level + "    ")
+    if "Including" in DStruct:
         print(level, "  Including:")
-        displayEntry(dict["Including"], level + "    ")
+        displayEntry(DStruct["Including"], level + "    ")
 
-def displayAreaList(dict, level):
-    al = dict["Value"]
+def displayAreaList(DStruct, level):
+    al = DStruct["Value"]
     print(level, end="")
     s = ""
     for i in al:

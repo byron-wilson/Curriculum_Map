@@ -2,14 +2,14 @@
 # Python file to print out a Unit dictionary.
 # We have a method to display each of the fields.
 #
-def displayUnit(dict):
-    displayEntry(dict, "")
+def displayUnit(DStruct):
+    displayEntry(DStruct, "")
 
-def displayEntry(dict, level):
-    displayUnitEntries(dict, level)
+def displayEntry(DStruct, level):
+    displayUnitEntries(DStruct, level)
   
-def displayUnitEntries(dict, level):
-    if not("Type" in dict):
+def displayUnitEntries(displayEntry, level):
+    if not("Type" in displayEntry):
         print(level, "No Prerequisites")
         return
     sw = {
@@ -23,24 +23,24 @@ def displayUnitEntries(dict, level):
         "Range":  displayRange,
         "CreditPoints": displayCreditPoints,
         "AreaList": displayAreaList }
-    return (sw.get(dict["Type"], displayError))(dict, level)
+    return (sw.get(displayEntry["Type"], displayError))(displayEntry, level)
 
-def displayError(dict, level):
-    print(level, "Invalid Dictionary Entry: ", dict)
+def displayError(DStruct, level):
+    print(level, "Invalid Dictionary Entry: ", DStruct)
 
-def displayAnd(dict, level):
+def displayAnd(DStruct, level):
     print(level, "AND:")    
-    for d in dict["Value"]:
+    for d in DStruct["Value"]:
         displayUnitEntries(d, level + "  ")
 
-def displayOr(dict, level): 
+def displayOr(DStruct, level): 
     print(level, "OR:")
-    for d in dict["Value"]:
+    for d in DStruct["Value"]:
         displayUnitEntries(d, level + "  ")
 
-def displayAdmission(dict, level):
+def displayAdmission(DStruct, level):
     print(level, "Admission To: ", end="")
-    d = dict["Value"]
+    d = DStruct["Value"]
     s=""
     for i in d:
         print(s, end="")
@@ -48,79 +48,79 @@ def displayAdmission(dict, level):
         s=","
     print()
 
-def displayDegree(dict, level):
+def displayDegree(DStruct, level):
     print(level, "Degree: ", end="")
-    d = dict
+    d = DStruct
     print(d["Value"], end="")
     if "In" in d:
         print(" In", d["In"], end="")
     if "prior" in d:
         print(" Prior to", d["prior"], end="")
 
-def displayGPA(dict, level):
-    print(level, "GPA of", dict["Value"], end="")
-    if "OutOf" in dict:
-        print(" Out Of", dict["OutOf"], end="")
+def displayGPA(DStruct, level):
+    print(level, "GPA of", DStruct["Value"], end="")
+    if "OutOf" in DStruct:
+        print(" Out Of", DStruct["OutOf"], end="")
     print()
 
-def displayPermission(dict, level):
+def displayPermission(DStruct, level):
     print(level, "Permission by Special Approval")
 
-def displayCourse(dict, level):
-    if "HSC" in dict:
-        return displayHSC(dict, level)
+def displayCourse(DStruct, level):
+    if "HSC" in DStruct:
+        return displayHSC(DStruct, level)
     v = "Course: "
-    if "coreq" in dict:
+    if "coreq" in DStruct:
         v = v + "Corequisite of "
-    v = v + dict["Value"]
-    if "Min" in dict:
-        v = v + "(" + dict["Min"] + ")"
+    v = v + DStruct["Value"]
+    if "Min" in DStruct:
+        v = v + "(" + DStruct["Min"] + ")"
     print(level, v)
 
-def displayHSC(dict, level):
-    v = "HSC " + dict["Value"]
+def displayHSC(DStruct, level):
+    v = "HSC " + DStruct["Value"]
     print(level, v)
     level = level + "  "
-    if "bands" in dict:
+    if "bands" in DStruct:
         print(level, "Bands:", end="")
         s=""
-        for b in dict["bands"]:
+        for b in DStruct["bands"]:
             print(s, b, end="")
             s=","
         print()
-    if "Extension1" in dict:
+    if "Extension1" in DStruct:
         e1s = "Extension 1"
         s=": "
-        for i in dict["Extension1"]:
+        for i in DStruct["Extension1"]:
             e1s = e1s + s + "E" + str(i)
             s = ", "
         print(level, e1s)
-    if "Extension2" in dict:
+    if "Extension2" in DStruct:
         print(level, "Extension 2")
 
-def displayRange(dict, level):
+def displayRange(DStruct, level):
     print(level, "Course Range:")
-    displayCourse(dict["Start"], level + "   ")
-    displayCourse(dict["End"], level + "To:")
+    displayCourse(DStruct["Start"], level + "   ")
+    displayCourse(DStruct["End"], level + "To:")
 
-def displayCreditPoints(dict, level):
-    cp=str(dict["Points"]) + " Credit Points"
-    if "Min" in dict:
-        cp = cp + "(" + dict["Min"] + ")"
-    if "Level" in dict:
-        cp = cp + " at " + str(dict["Level"]) + " level"
-        if "Above" in dict:
+def displayCreditPoints(DStruct, level):
+    cp=str(DStruct["Points"]) + " Credit Points"
+    if "Min" in DStruct:
+        cp = cp + "(" + DStruct["Min"] + ")"
+    if "Level" in DStruct:
+        cp = cp + " at " + str(DStruct["Level"]) + " level"
+        if "Above" in DStruct:
             cp = cp + " or Above"
     print(level, cp)
-    if "Area" in dict:
+    if "Area" in DStruct:
         print(level, "  Areas: ")
-        displayAreaList(dict["Area"], level + "    ")
-    if "Including" in dict:
+        displayAreaList(DStruct["Area"], level + "    ")
+    if "Including" in DStruct:
         print(level, "  Including:")
-        displayEntry(dict["Including"], level + "    ")
+        displayEntry(DStruct["Including"], level + "    ")
 
-def displayAreaList(dict, level):
-    al = dict["Value"]
+def displayAreaList(DStruct, level):
+    al = DStruct["Value"]
     print(level, end="")
     s = ""
     for i in al:
