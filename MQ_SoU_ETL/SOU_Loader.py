@@ -171,4 +171,43 @@ def main():
         for v in sou.values():
             session.run(statement,{"Scope": v['Scope'], "Code": v['Code']})
             
+    with driver.session() as session:
+        'Create and link unit type nodes to units'
+        statement = "MERGE (ut:Unit_Type {Type:{Type}})"           
+        for v in sou.values():
+            if v['Type'] != '':
+                session.run(statement,{"Type": v['Type']})
+            
+        statement = ("MATCH (ut:Unit_Type {Type:{Type}}),(u:Unit {Code:{Code}})"
+                     "MERGE (u)-[:IS_TYPE]->(ut)")
+        for v in sou.values():
+            if v['Type'] != '':
+                session.run(statement,{"Type": v['Type'], "Code": v['Code']})  
+                      
+    with driver.session() as session:
+        'Create and link Departments'
+        statement = "MERGE (d:Department {Name:{Name}})"           
+        for v in sou.values():
+            session.run(statement,{"Name": v['Dept']})
+                
+        statement = ("MATCH (d:Department {Name:{Name}}),(u:Unit {Code:{Code}})"
+                    "MERGE (u)-[:OFFERED_BY]->(d)")
+        for v in sou.values():
+            session.run(statement,{"Code": v['Code'],"Name": v['Dept']})      
+                
+    with driver.session() as session:
+        'Create and link Designations'
+        statement = "MERGE (ud:Unit_Designation {Designation:{Des}})"           
+        for v in sou.values():
+            if v['Designation_Str'] != '':
+                for u_des in v['Designation_Str'].split(' or '):
+                    session.run(statement,{"Des": u_des.strip(' ')})
+                
+        statement = ("MATCH (ud:Unit_Designation {Designation:{Des}}),(u:Unit {Code:{Code}})"
+                    "MERGE (u)-[:DESIGNATED]->(ud)")
+        for v in sou.values():
+            if v['Designation_Str'] != '':
+                for u_des in v['Designation_Str'].split(' or '):
+                    session.run(statement,{"Des": u_des.strip(' '),"Code": v['Code']})        
+                              
 main()
