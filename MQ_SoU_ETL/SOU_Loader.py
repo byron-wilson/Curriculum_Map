@@ -208,6 +208,45 @@ def main():
         for v in sou.values():
             if v['Designation_Str'] != '':
                 for u_des in v['Designation_Str'].split(' or '):
-                    session.run(statement,{"Des": u_des.strip(' '),"Code": v['Code']})        
-                              
+                    session.run(statement,{"Des": u_des.strip(' '),"Code": v['Code']})
+                    
+    with driver.session() as session:
+        'Link Units to NCCW Units or create Unit Nodes' #There is an outstanding issue with HSC results
+        statement = ("MERGE (nccw:Unit {Code:{NCCWCode}})"
+                     "ON CREATE SET nccw.Name = 'Legacy Unit'")          
+        for v in sou.values():
+            if v['NCCW_Str'] != '':
+                for nccw in v['NCCW_Str'].split(' or '):
+                    session.run(statement,{"NCCWCode": nccw.strip(' ')})
+                
+        statement = ("MATCH (nccw:Unit {Code:{NCCWCode}}),(u:Unit {Code:{Code}})"
+                    "MERGE (u)-[:IS_NCCW]->(nccw)")
+        for v in sou.values():
+            if v['NCCW_Str'] != '':
+                for nccw in v['NCCW_Str'].split(' or '):
+                    session.run(statement,{"NCCWCode": nccw.strip(' '),"Code": v['Code']})                            
+                         
+    with driver.session() as session: #Not working. Need to split at \\n but it is being skipped in the csv import
+        'Create When offered nodes with attendance mode linked to units'
+        statement = "MERGE (wo:Offering {Session:{Sess}})"    
+        for v in sou.values():
+            if v['When'] != '':
+                for when_o in v['When'].splitlines():
+                    session.run(statement,{"Sess": when_o.strip(' ')})
+                
+        statement_with = ("MATCH (wo:Offering {Session:{Sess}}),(u:Unit {Code:{Code}})"
+                    "MERGE (u)-[:OFFERED_IN {Attendance_Mode: {Att}}]->(wo)")
+        
+        statement_without = ("MATCH (wo:Offering {Session:{Sess}}),(u:Unit {Code:{Code}})"
+                    "MERGE (u)-[:OFFERED_IN]->(wo)")
+        for v in sou.values():
+            if v['When'] != '':
+                c=-1
+                Att_list = v['Attend'].splitlines()
+                for when_o in v['When'].splitlines():
+                    c += 1
+                    if Att_list[c] == '':
+                        session.run(statement_without,{"Sess": when_o.strip(' '),"Code": v['Code']})
+                    else:
+                        session.run(statement_with,{"Sess": when_o.strip(' '),"Att": Att_list[c],"Code": v['Code']})                              
 main()
