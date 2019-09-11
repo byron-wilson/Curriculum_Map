@@ -2,8 +2,8 @@
 # Python file to print out a Unit dictionary.
 # We have a method to display each of the fields.
 #
-def displayUnit(DStruct):
-    displayEntry(DStruct, "")
+# def displayUnit(DStruct):
+#     displayEntry(DStruct, "")
 
 def displayEntry(DStruct, level):
     displayUnitEntries(DStruct, level)
@@ -19,7 +19,7 @@ def displayUnitEntries(displayEntry, level):
         "GPA": displayGPA,
         "Permission": displayPermission,
         "Degree": displayDegree,
-        "Course": displayCourse,
+        "Unit": displayUnit,
         "Range":  displayRange,
         "CreditPoints": displayCreditPoints,
         "AreaList": displayAreaList }
@@ -66,10 +66,10 @@ def displayGPA(DStruct, level):
 def displayPermission(DStruct, level):
     print(level, "Permission by Special Approval")
 
-def displayCourse(DStruct, level):
+def displayUnit(DStruct, level):
     if "HSC" in DStruct:
         return displayHSC(DStruct, level)
-    v = "Course: "
+    v = "Unit: "
     if "coreq" in DStruct:
         v = v + "Corequisite of "
     v = v + DStruct["Value"]
@@ -99,9 +99,9 @@ def displayHSC(DStruct, level):
         print(level, "Extension 2")
 
 def displayRange(DStruct, level):
-    print(level, "Course Range:")
-    displayCourse(DStruct["Start"], level + "   ")
-    displayCourse(DStruct["End"], level + "To:")
+    print(level, "Unit Range:")
+    displayUnit(DStruct["Start"], level + "   ")
+    displayUnit(DStruct["End"], level + "To:")
 
 def displayCreditPoints(DStruct, level):
     cp=str(DStruct["Points"]) + " Credit Points"

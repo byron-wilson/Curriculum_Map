@@ -1,7 +1,8 @@
 
 import sys
-from printUnit import *
-from printCSV import *
+from printUnit import *  # original display file
+#from printCSV import *  # Create CSV load file (approach abandoned with bolt driver working)
+from SOU_Linker import *  # Create relationships directly through bolt connection with neo4j
 
 """
 Schedule of Units parser
@@ -10,7 +11,7 @@ This file parses the schedule of units csv file and produces an internal data st
 """
 
 sou = {}    # main dictionary that holds all the records. Each record is a dictionary of fields. Each field is either a value or a dictionary of values etc...
-ListOfAreas = []            # List of Areas that a course may have as including values
+ListOfAreas = []            # List of Areas that a Unit may have as including values
 ListOfDegrees = []        # list of degrees offered that can be part of a pre-requisite
 
 def canonUnit(unit):
@@ -35,28 +36,30 @@ def isValidUnit(unit):
                 return unit[3:5].isdigit()
         return False
 
-def readValue(f):
+def readValue(f, field):
         s=""
         inQuotes=False
         while True:
             c = f.read(1)
             if len(c) == 0:
                 return (s,2)                # end of input
-            if c == b'\r':
-                return (s,1)                # end of line
             if c == b'"':
                 inQuotes = not(inQuotes)
+            elif c == b'\r' and inQuotes == False:
+                return (s, 1)  # Question: does the 1 do anything? , end of line
+            elif c == b'\r' and inQuotes:
+                s = s + "|"  # insert pipe if there is line break
             else:
                 if c == b',' and inQuotes == False:
                     return (s,0)                # end of a field
-        #          print(c)
-                if (c == b',') and inQuotes:
+        #           print(c)
+                if (c == b',') and inQuotes and field != "Name":
                     s = s + " or "
                 elif c != b'\n' and c[0] < 128:
                     s = s + c.decode("utf-8")
 
 def addUnitField(f, ud, field):
-        v,r = readValue(f)
+        v,r = readValue(f, field)
         if r != 2:
             ud[field] = v
         return r
@@ -80,10 +83,10 @@ def readUnit(f):
         addUnitField(f, ud, "CoLo")
         addUnitField(f, ud, "Quota")
         addUnitField(f, ud, "SONIA")
-        v,r = readValue(f)
-        v,r = readValue(f)
-        v,r = readValue(f)
-        v,r = readValue(f)
+        v,r = readValue(f,"")
+        v,r = readValue(f, "")
+        v,r = readValue(f, "")
+        v,r = readValue(f, "")
         return ud,r
 
 def readScheduleOfUnits(fileName):
@@ -134,7 +137,7 @@ def tokenise(str):
                 sl.append(i)
                 continue
             if i.isalnum():
-                s = i;
+                s = i  # Removed semi-colon from line
                 state = 1
                 continue
             print("Found Unknown token char in string -->" + i + "<--")
@@ -253,12 +256,12 @@ def r2(prs, startToken):
             return True,t,d
     if getToken(prs, startToken) == "permission" and getToken(prs, startToken+1) == "by" and getToken(prs, startToken+2) == "special" and getToken(prs, startToken+3) == "approval":
         return True,startToken+4,{"Type": "Permission"}
-    v,t,d = courseList(prs, startToken)
+    v,t,d = UnitList(prs, startToken)
     if v:
         if len(d) == 1:
             return True,t,d[0]                # don't bother returning a list of just one element
         return True,t,{"Type": "Or", "Value": d}
-#    print("Failed courseList in r2")
+#    print("Failed UnitList in r2")
     v,t,d = creditPoints(prs, startToken)
     if v:
         return v,t,d
@@ -327,7 +330,7 @@ def degreeList(prs, startToken):
         t = t1
     return True,t,dl
 
-def getCourse(prs, startToken):
+def getUnit(prs, startToken):
     c = False
     t = startToken
     if getToken(prs, startToken) == "corequisite" and getToken(prs, t + 1) == "of":
@@ -337,7 +340,7 @@ def getCourse(prs, startToken):
     if unit == "":
         return False,startToken,{}
     t = t + 1
-    d = { "Type": "Course", "Value": unit }
+    d = { "Type": "Unit", "Value": unit }
     if c:
         d["coreq"] = True
     if getToken(prs, startToken+1) == '(' and getToken(prs, startToken+2) in ["p", "cr", "d", "hd"] and getToken(prs, startToken+3) == ')':
@@ -353,7 +356,7 @@ def getHSC(prs, startToken):
         if getToken(prs, t) == "band" and getToken(prs, t + 1).isdigit():
             bl = [int(getToken(prs, t + 1))]
             t = t + 2
-        return True,t,{"Type": "Course", "HSC": True, "Value": "Chemistry", "Bands": bl}
+        return True,t,{"Type": "Unit", "HSC": True, "Value": "Chemistry", "Bands": bl}
     if getToken(prs, t) == "physics":
         bl=[]
         t=t+1
@@ -363,10 +366,10 @@ def getHSC(prs, startToken):
             while getToken(prs, t) == "or" and getToken(prs, t + 1).isdigit():
                 bl.append(int(getToken(prs, t + 1)))
                 t = t + 2
-        return True,t,{"Type": "Course", "HSC": True, "Value": "Physics", "Bands": bl}
+        return True,t,{"Type": "Unit", "HSC": True, "Value": "Physics", "Bands": bl}
     ct = t
     if getToken(prs, t) == "mathematics":
-        md = {"Type": "Course", "HSC": True, "Value": "Mathematics"}
+        md = {"Type": "Unit", "HSC": True, "Value": "Mathematics"}
         bl=[]
         t = t + 1
         if getToken(prs, t) == "band":
@@ -411,32 +414,32 @@ def getHSC(prs, startToken):
         return True,t,md
     return False,startToken,{}
 
-def getCourseRange(prs, startToken):
+def getUnitRange(prs, startToken):
     if getToken(prs, startToken) == "hsc":
-        # HSC Courses. We'll add these are special courses!
+        # HSC Units. We'll add these are special Units!
         return getHSC(prs, startToken)
-    v,t,d = getCourse(prs, startToken)
+    v,t,d = getUnit(prs, startToken)
     if not(v):
-#        print("Failed getCourse in getCourseRange")
+#        print("Failed getUnit in getUnitRange")
         return False,startToken,{}
     if getToken(prs, t) == '-':
-        v1,t1,d1 = getCourse(prs, t+1)
+        v1,t1,d1 = getUnit(prs, t+1)
         if not(v1):
             return True,t,d
         t = t1
         d = { "Type": "Range", "Start": d, "End": d1 }
     return True,t,d
     
-def courseList(prs, startToken):
-    v,t,d = getCourseRange(prs, startToken)
+def UnitList(prs, startToken):
+    v,t,d = getUnitRange(prs, startToken)
     if not(v):
-#        print("Failed getCourseRange first in courseList")
+#        print("Failed getUnitRange first in UnitList")
         return False,startToken,[]
     cl = [ d ]
     while getToken(prs, t) == "or":
-        v1,t1,d1 = getCourseRange(prs, t+1)
+        v1,t1,d1 = getUnitRange(prs, t+1)
         if not(v1):
-            break                         # not a list of courses, the OR we found must relate to something else.
+            break                         # not a list of Units, the OR we found must relate to something else.
         cl.append(d1)
         t = t1
     return True,t,cl
@@ -513,7 +516,7 @@ def creditPoints(prs, startToken):
     return True,t,cd
 
 """
-Area list, areas that a course can be in, such as COMP, or ENGG etc.
+Area list, areas that a Unit can be in, such as COMP, or ENGG etc.
 """
 def areaList(prs, startToken):
     token = getToken(prs, startToken)
@@ -536,7 +539,7 @@ def parsePreReq(prereq):
 #    print("PRS: ", prs)
     if len(prs) == 0:
         return True,{}        # none
-    v,t,d =    rule(prs, 0)
+    v,t,d = rule(prs, 0)
     if v and t == len(prs):
         return True,d
     return False,d
@@ -561,8 +564,9 @@ def main():
             v,d = parsePreReq(sou[str]["Prereq_Str"])
 #            print(v, d)
             print(str)
-            displayEntry(d, "")
-            createCSV(d, str)
+            displayEntry(d, "")  # print result (original)
+            # createCSV(d, str)  # create CSV file (added by BW)
+            createPrereq(d, str) # str needs to be the unit code
 
 
 main()
